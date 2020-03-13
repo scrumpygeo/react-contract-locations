@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, { Marker } from 'react-map-gl';
 import Place from './components/Place';
 import * as locationsData from './data/locations.json';
 import './App.css';
@@ -14,6 +14,11 @@ class App extends Component {
       zoom: 10
     },
     targetLocation: {}
+  };
+
+  onViewportChange = viewport => {
+    const { width, height, ...etc } = viewport;
+    this.setState({ viewport: etc });
   };
 
   selectPlace = place => {
@@ -54,7 +59,18 @@ class App extends Component {
             mapStyle='mapbox://styles/mapbox/outdoors-v11'
             mapboxApiAccessToken='pk.eyJ1IjoicHZhbDEiLCJhIjoiY2s3bm05dnhnMDA0NDNmcGF2cHpqNXFydCJ9.yA2nGLMoYF3NmD7sSSUI-w'
             onViewportChange={viewport => this.setState({ viewport })}
-          ></ReactMapGL>
+          >
+            {Object.keys(this.state.targetLocation).length !== 0 ? (
+              <Marker
+                latitude={this.state.targetLocation.lat}
+                longitude={this.state.targetLocation.lng}
+              >
+                <img src='location-icon.svg' className='pin' alt='pin' />
+              </Marker>
+            ) : (
+              <div></div>
+            )}
+          </ReactMapGL>
         </div>
       </div>
     );
