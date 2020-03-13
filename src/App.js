@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactMapGL from 'react-map-gl';
+import Place from './components/Place';
 import './App.css';
 
 class App extends Component {
@@ -16,7 +17,9 @@ class App extends Component {
     return (
       <div className='res-container'>
         <div className='main'>
-          <div className='cards'></div>
+          <div className='cards'>
+            <Place />
+          </div>
         </div>
         <div className='mapContainer'>
           <ReactMapGL
