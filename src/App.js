@@ -18,7 +18,14 @@ class App extends Component {
         <div className='main'>
           <div className='cards'></div>
         </div>
-        <div className='mapContainer'></div>
+        <div className='mapContainer'>
+          <ReactMapGL
+            {...this.state.viewport}
+            mapStyle='mapbox://styles/mapbox/outdoors-v11'
+            mapboxApiAccessToken='pk.eyJ1IjoicHZhbDEiLCJhIjoiY2s3bm05dnhnMDA0NDNmcGF2cHpqNXFydCJ9.yA2nGLMoYF3NmD7sSSUI-w'
+            onViewportChange={viewport => this.setState({ viewport })}
+          ></ReactMapGL>
+        </div>
       </div>
     );
   }
