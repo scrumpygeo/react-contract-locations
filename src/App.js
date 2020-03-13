@@ -12,15 +12,39 @@ class App extends Component {
       latitude: 55.7803,
       longitude: -4.0629,
       zoom: 10
-    }
+    },
+    targetLocation: {}
   };
+
+  selectPlace = place => {
+    let selectPlace = {
+      lat: parseFloat(place.latitude),
+      lng: parseFloat(place.longitude)
+    };
+    let newViewport = {
+      height: '100vh',
+      width: '40vw',
+      latitude: parseFloat(place.latitude),
+      longitude: parseFloat(place.longitude),
+      zoom: 10
+    };
+    this.setState({
+      viewport: newViewport,
+      targetLocation: selectPlace
+    });
+  };
+
   render() {
     return (
       <div className='res-container'>
         <div className='main'>
           <div className='cards'>
             {locationsData.default.map(place => (
-              <Place place={place} />
+              <Place
+                place={place}
+                selectPlace={this.selectPlace}
+                key={place.id}
+              />
             ))}
           </div>
         </div>

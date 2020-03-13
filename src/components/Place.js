@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './place.css';
 
 export class Place extends Component {
+  handleClick = () => {
+    this.props.selectPlace(this.props.place);
+  };
   render() {
     const style = {
       backgroundImage: `url('${this.props.place.loc_image}')`
