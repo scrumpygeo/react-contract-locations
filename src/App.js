@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactMapGL from 'react-map-gl';
 import Place from './components/Place';
+import * as locationsData from './data/locations.json';
 import './App.css';
 
 class App extends Component {
@@ -18,7 +19,9 @@ class App extends Component {
       <div className='res-container'>
         <div className='main'>
           <div className='cards'>
-            <Place />
+            {locationsData.default.map(place => (
+              <Place place={place} />
+            ))}
           </div>
         </div>
         <div className='mapContainer'>
