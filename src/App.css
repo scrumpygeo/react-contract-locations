@@ -1,5 +1,10 @@
 /* @import url("https://api.tiles.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet"); */
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .res-container {
   display: flex;
 }
@@ -61,6 +66,7 @@
     width: 90vw;
     padding-left: 15px;
     padding-right: 35px;
-    margin: 0 20px;
+    /* margin: 0 20px; */
+    margin: 0 auto;
   }
 }

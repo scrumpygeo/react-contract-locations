@@ -5,17 +5,21 @@ import * as locationsData from './data/locations.json';
 import './App.css';
 
 class App extends Component {
-  state = {
-    viewport: {
-      height: '100vh',
-      width: '30vw',
-      latitude: 55.7803,
-      longitude: -4.0629,
-      zoom: 10
-    },
-    targetLocation: {}
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      viewport: {
+        height: '100vh',
+        width: '100%',
+        latitude: 55.7803,
+        longitude: -4.0629,
+        zoom: 10
+      },
+      targetLocation: {}
+    };
 
+    this.mapRef = React.createRef();
+  }
   onViewportChange = viewport => {
     const { width, height, ...etc } = viewport;
     this.setState({ viewport: etc });
@@ -28,11 +32,12 @@ class App extends Component {
     };
     let newViewport = {
       height: '100vh',
-      width: '30vw',
+      width: '100%',
       latitude: parseFloat(place.latitude),
       longitude: parseFloat(place.longitude),
       zoom: 10
     };
+
     this.setState({
       viewport: newViewport,
       targetLocation: selectPlace
