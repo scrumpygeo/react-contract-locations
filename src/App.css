@@ -5,7 +5,7 @@
 }
 
 .cards {
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   display: grid;
   grid-gap: 16px;
   padding: 16px;
@@ -15,6 +15,7 @@
 .mapContainer {
   flex-grow: 0;
   height: 100vh;
+  width: 30vw;
   top: 0;
   position: sticky;
 }
@@ -39,10 +40,27 @@
   .cards {
     grid-template-columns: 1fr 1fr;
   }
+  .mapContainer {
+    flex-grow: 1;
+  }
 }
 
 @media (max-width: 768px) {
   .cards {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  .res-container {
+    flex-direction: column;
+  }
+
+  .mapContainer {
+    flex-grow: 0;
+    width: 90vw;
+    padding-left: 15px;
+    padding-right: 35px;
+    margin: 0 20px;
   }
 }

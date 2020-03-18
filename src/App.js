@@ -7,8 +7,8 @@ import './App.css';
 class App extends Component {
   state = {
     viewport: {
-      width: '30vw',
       height: '100vh',
+      width: '30vw',
       latitude: 55.7803,
       longitude: -4.0629,
       zoom: 10
