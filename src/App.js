@@ -7,7 +7,7 @@ import './App.css';
 class App extends Component {
   state = {
     viewport: {
-      width: '40vw',
+      width: '30vw',
       height: '100vh',
       latitude: 55.7803,
       longitude: -4.0629,
@@ -28,7 +28,7 @@ class App extends Component {
     };
     let newViewport = {
       height: '100vh',
-      width: '40vw',
+      width: '30vw',
       latitude: parseFloat(place.latitude),
       longitude: parseFloat(place.longitude),
       zoom: 10
@@ -42,17 +42,16 @@ class App extends Component {
   render() {
     return (
       <div className='res-container'>
-        <div className='main'>
-          <div className='cards'>
-            {locationsData.default.map(place => (
-              <Place
-                place={place}
-                selectPlace={this.selectPlace}
-                key={place.id}
-              />
-            ))}
-          </div>
+        <div className='cards'>
+          {locationsData.default.map(place => (
+            <Place
+              place={place}
+              selectPlace={this.selectPlace}
+              key={place.id}
+            />
+          ))}
         </div>
+
         <div className='mapContainer'>
           <ReactMapGL
             {...this.state.viewport}

@@ -11,10 +11,10 @@ export class Place extends Component {
     };
 
     return (
-      <div className='place' onClick={this.handleClick}>
-        <div className='place-picture' style={style}>
-          {this.props.place.city}
-        </div>
+      <div className='place' style={style} onClick={this.handleClick}>
+        {/* <div className='place-picture' style={style}> */}
+        {this.props.place.city}
+        {/* </div> */}
       </div>
     );
   }
