@@ -18,8 +18,13 @@ class App extends Component {
       targetLocation: {}
     };
 
-    this.mapRef = React.createRef();
+    // this.mapRef = React.createRef();
   }
+
+  componentDidUpdate() {
+    this.newLocation.scrollIntoView({ behavior: 'smooth' });
+  }
+
   onViewportChange = viewport => {
     const { width, height, ...etc } = viewport;
     this.setState({ viewport: etc });
@@ -57,7 +62,7 @@ class App extends Component {
           ))}
         </div>
 
-        <div className='mapContainer'>
+        <div className='mapContainer' ref={ref => (this.newLocation = ref)}>
           <ReactMapGL
             {...this.state.viewport}
             mapStyle='mapbox://styles/mapbox/outdoors-v11'
