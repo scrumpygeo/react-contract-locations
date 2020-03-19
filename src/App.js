@@ -17,12 +17,27 @@ class App extends Component {
       },
       targetLocation: {},
       selectedSite: {},
-      showPopup: true
+      showPopup: true,
+      currentKey: ''
     };
   }
 
+  escFunction = event => {
+    if (event.keyCode === 27) {
+      this.setState({ showPopup: false });
+    }
+  };
+
   componentDidUpdate() {
     this.newLocation.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  componentDidMount() {
+    document.addEventListener('keyup', this.escFunction, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keyup', this.escFunction, false);
   }
 
   onViewportChange = viewport => {
