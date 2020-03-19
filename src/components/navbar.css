@@ -1,0 +1,13 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.15);
+  background-color: rgba(102, 153, 204, 0.3);
+}
+
+.navbar h3 {
+  justify-content: space-around;
+  color: rgb(100, 100, 100);
+}
