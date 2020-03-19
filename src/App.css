@@ -39,6 +39,10 @@ body {
   height: 20px;
 }
 
+.mapboxgl-popup {
+  color: #505050;
+}
+
 @media (max-width: 992px) {
   .cards {
     grid-template-columns: 1fr 1fr;

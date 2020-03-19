@@ -128,7 +128,7 @@ class App extends Component {
                 closeOnClick={true}
                 onClose={() => this.setState({ showPopup: false })}
               >
-                <div>
+                <div className='popup'>
                   <h3>{`${this.state.selectedSite.company} `}</h3>
                   <p>{`${this.state.selectedSite.skillset} `}</p>
                 </div>
