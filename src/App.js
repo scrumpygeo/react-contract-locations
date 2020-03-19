@@ -85,7 +85,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar className='navbar' />
+        <Navbar />
         <div className='res-container'>
           <div className='cards'>
             {locationsData.default.map(place => (
