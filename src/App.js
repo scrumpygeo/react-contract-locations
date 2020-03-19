@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactMapGL, { Marker } from 'react-map-gl';
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import Place from './components/Place';
 import * as locationsData from './data/locations.json';
 import './App.css';
@@ -15,10 +15,10 @@ class App extends Component {
         longitude: -4.0629,
         zoom: 10
       },
-      targetLocation: {}
+      targetLocation: {},
+      selectedSite: {},
+      showPopup: true
     };
-
-    // this.mapRef = React.createRef();
   }
 
   componentDidUpdate() {
@@ -33,7 +33,9 @@ class App extends Component {
   selectPlace = place => {
     let selectPlace = {
       lat: parseFloat(place.latitude),
-      lng: parseFloat(place.longitude)
+      lng: parseFloat(place.longitude),
+      company: place.company,
+      skillset: place.skillset
     };
     let newViewport = {
       height: '100vh',
@@ -46,6 +48,21 @@ class App extends Component {
     this.setState({
       viewport: newViewport,
       targetLocation: selectPlace
+    });
+  };
+
+  setSelectedPlace = target => {
+    // if (target) {
+    let setSelectedPlace = {
+      lat: target.lat,
+      lng: target.lng,
+      company: target.company,
+      skillset: target.skillset
+    };
+
+    this.setState({
+      selectedSite: setSelectedPlace,
+      showPopup: true
     });
   };
 
@@ -74,11 +91,34 @@ class App extends Component {
                 latitude={this.state.targetLocation.lat}
                 longitude={this.state.targetLocation.lng}
               >
-                <img src='location-icon.svg' className='pin' alt='pin' />
+                <button
+                  className='marker-btn'
+                  onClick={e => {
+                    this.setSelectedPlace(this.state.targetLocation);
+                  }}
+                >
+                  <img src='location-icon.svg' className='pin' alt='pin' />
+                </button>
               </Marker>
             ) : (
               <div></div>
             )}
+
+            {Object.keys(this.state.selectedSite).length !== 0 &&
+            this.state.showPopup ? (
+              <Popup
+                longitude={this.state.selectedSite.lng}
+                latitude={this.state.selectedSite.lat}
+                closeButton={true}
+                closeOnClick={true}
+                onClose={() => this.setState({ showPopup: false })}
+              >
+                <div>
+                  <h3>{`${this.state.selectedSite.company} `}</h3>
+                  <p>{`${this.state.selectedSite.skillset} `}</p>
+                </div>
+              </Popup>
+            ) : null}
           </ReactMapGL>
         </div>
       </div>
