@@ -1,5 +1,9 @@
 # Introduction
 
+also viewable on:
+
+https://react-contract-locations.herokuapp.com/
+
 Basic exercise in using React with Mapbox: react-map-gl.
 
 Uses json with data relating to some of my past ERP consulting locations.
