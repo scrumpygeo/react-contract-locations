@@ -2,7 +2,7 @@
 
 also viewable on:
 
-https://react-contract-locations.herokuapp.com/
+https://eager-northcutt-9ed4de.netlify.app/
 
 Basic exercise in using React with Mapbox: react-map-gl.
 
