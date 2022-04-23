@@ -2,7 +2,7 @@
 
 also viewable on:
 
-https://eager-northcutt-9ed4de.netlify.app/
+https://resplendent-taffy-248117.netlify.app/
 
 Basic exercise in using React with Mapbox: react-map-gl.
 
